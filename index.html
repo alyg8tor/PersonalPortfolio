@@ -12,35 +12,52 @@
 <body>
     <nav id="navbar">
         <ul class="navlist">
-            <li><a href="#welcome-section">About</a></li>
-            <li><a href="#projects">Work</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li class="list-item"><a href="#welcome-section">About</a></li>
+            <li class="list-item"><a href="#projects">Work</a></li>
+            <li class="list-item"><a href="#contact">Contact</a></li>
         </ul>
     </nav>
     <section id="welcome-section">
         <h1 class="move-me move-me-1">Hello</h1>
-        <p class="move-me move-me-2">My name is Alyssa Merrill <br>and I am a web developer <br>with a passion for coding,<br>tacos, & doing good</p>
+        <p class="move-me move-me-2">My name is Alyssa Merrill <br>and I am an aspiring a <br>web developer with a passion <br>for coding, tacos, & doing good</p>
     </section>
     <section id="projects">
-        <h2>Check out some of my work</h2>
+        <h2 id="projects-header">Check out some of my work</h2>
         <div class="project-grid">
             <a id="profile-link" class="project-tile" target="_blank" href="https://www.pexels.com">
-                <img  src="https://images.pexels.com/photos/2918010/pexels-photo-2918010.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"/>
+                <img class="project-image" src="https://cdn.pixabay.com/photo/2014/07/16/05/18/beach-394503_1280.jpg" alt="project 1"/>
+                <p class="text">Project 1</p>
             </a>
-            <a class="project-tile" href="https://www.pexels.com">
-                <img  src="https://images.pexels.com/photos/2918010/pexels-photo-2918010.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"/>
+            <a id="profile-link" class="project-tile" target="_blank" href="https://www.pexels.com">
+                <img class="project-image" src="https://cdn.pixabay.com/photo/2017/08/06/12/06/people-2591874_1280.jpg" alt="project 1"/>
+                <p class="text">Project 2</p>
             </a>
-            <a class="project-tile" href="https://www.pexels.com">
-                <img  src="https://images.pexels.com/photos/2918010/pexels-photo-2918010.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"/>
+            <a id="profile-link" class="project-tile" target="_blank" href="https://www.pexels.com">
+                <img  class="project-image" src="https://cdn.pixabay.com/photo/2017/01/17/04/07/plant-1985874_1280.jpg" alt="project 1"/>
+                <p class="text">Project 3</p>
             </a>
                    
         </div>
     </section>
     <section id="contact">
-        <h1>Let's work together...</h1>
+        <div class="contact-header">
+            <h1>Let's Get Crackin'</h1>
+            <h3>i'd love to work with you</h3>
+        </div>
+        <div class="contact-links">
+            <a href="mailto:alymerrill@hotmail.com" class="contact-btn">
+                <img src="https://cdn.pixabay.com/photo/2016/06/13/17/30/mail-1454734_1280.png" class="icon"/>
+            </a>
+            <a href="https://github.com/alyg8tor" target="_blank" class="contact-btn">
+                <img src="https://cdn.pixabay.com/photo/2017/08/05/11/24/logo-2582757_1280.png" class="icon"/>
+            </a>
+            <a href="tel:385-248-2169" class="contact-btn">
+                <img src="https://cdn.pixabay.com/photo/2016/11/17/16/06/icons-1831926_1280.png" class="icon"/>
+            </a>
+        </div>
     </section>
     <footer>
-        <p>This is Alyssa Merrill's DGM 1600 Personal Portfolio</p>
+        <p>This is Alyssa Merrill's Personal Portfolio</p>
     </footer>
     <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
 </body>
