@@ -1,0 +1,136 @@
+* {
+    scroll-behavior: smooth;
+}
+
+@font-face {
+    font-family: 'Montserrat', sans-serif;
+    src: url(https://fonts.googleapis.com/css?family=Montserrat&display=swap);
+    font-family: 'Barlow', sans-serif;
+    src: url(https://fonts.googleapis.com/css?family=Barlow&display=swap);
+}
+
+h1, h3 {
+    color: #ffee58; 
+}
+
+body {
+    background-image: url("/assets/scapeBackground.png"); 
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+    font-family: 'Barlow', sans-serif;
+}
+
+h1, p {
+    font-family: 'Montserrat', sans-serif;
+}
+
+section {
+    display: flex;
+    justify-content: center;
+}
+
+section img {
+    max-width: 700px;
+    margin-top: 30px;
+}
+
+nav ul {
+    padding: 0px;
+}
+
+#navbar {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100px;
+}  
+
+.navlist {
+    display: flex;
+    justify-content: space-evenly;
+    width: 1000px;
+    border-top: 3px solid #ffee58;
+    border-bottom: 3px solid #ffee58;
+}
+
+li {
+    list-style: none;
+    color: yellow;
+    font-size: 3rem;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+a:hover {
+    text-decoration: none;
+    color: #ffee58;
+}
+
+.charMain {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    grid-gap: 2rem;
+    width: 100%;
+    max-width: 1030px;
+    margin: 0 auto;
+}
+
+.filmMain {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 2rem;
+    width: 100%;
+    max-width: 1030px;
+    margin: 0 auto;
+}
+
+.shipMain {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap: 2rem;
+    width: 100%;
+    max-width: 1030px;
+    margin: 0 auto;
+}
+
+h3, h4 {
+    margin: 0px;
+}
+
+.picDiv {
+    max-width: 150px;
+}
+
+.charDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 200px;
+}
+
+.shipPic {
+    max-width: 200px;
+}
+
+#myBtn {
+    display: flex;
+    justify-content: flex-end;
+    position: fixed;
+    bottom: 10px;
+    max-width: 30px;
+    width: 100%;
+    font-size: 12px;
+    border-color: rgba(85, 85, 85, 0.2);
+    background-color: rgb(100,100,100);
+    padding: 3px;
+}
+/*On Hover Color Change*/
+#myBtn:hover {
+    background-color: black;
+}

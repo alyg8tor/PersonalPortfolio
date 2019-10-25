@@ -61,31 +61,22 @@ a {
 
 #welcome-section {
     height: 100vh;
-    background: #f2f2f2;
+    background: linear-gradient(90deg, #f2f2f2 50%, #e8c368 50%);
     display: flex;
     justify-content: center;
     flex-direction: column;
     width: 100%;
     min-height: 200px;
+    
 }
 #welcome-section h1 {
-    display: inline;
-    position: relative;
+    display: flex;
     font-family: 'Poppins', sans-serif;
     letter-spacing: 10px;
-    color: rgba(0,0,255,0.5);
+    color: black;
     margin-left: 40px;
     vertical-align: center;
-    font-size: 250px;
-}
-
-#welcome-section h1:after {
-    content: "Hello";
-    position: absolute;
-    height: 100%;
-    left: -5px;
-    top: -4px;
-    color: rgba(255,0,0,0.5);
+    font-size: 175px;
 }
 
 #welcome-section p {
@@ -105,11 +96,12 @@ img {
 }
 
 #projects {
-    background-image: url(image/bright_water.jpg); 
+    background-image: url('https://images.pexels.com/photos/2516653/pexels-photo-2516653.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'); 
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    height: 100vh;
 }
 
 #projects-header {
@@ -179,6 +171,7 @@ img {
 
 #contact {
     height: 100vh;
+    background-color: #f2f2f2;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -210,7 +203,7 @@ img {
 footer {
     display: flex;
     justify-content: center;
-    background-image: url(image/bright_water.jpg); 
+    background-image: url('https://images.pexels.com/photos/2516653/pexels-photo-2516653.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'); 
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
