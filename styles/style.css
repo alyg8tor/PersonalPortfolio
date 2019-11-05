@@ -66,7 +66,6 @@ a:hover {
 #welcome-section {
     height: 100vh;
     background: linear-gradient(90deg, #f2f2f2 50%, #f2f2f2 50%);
-    justify-content: center;
     width: 100%;
     min-height: 200px;
     
@@ -108,7 +107,7 @@ a:hover {
     background-color: #ebd9d8;
     color: #000000;
     padding: 20px;
-    box-shadow: -5px 5px 2px rgba(0, 0, 0, 0.2);
+    box-shadow: -2px 2px 2px rgba(0, 0, 0, 0.1);
     opacity: 10;
     margin-right: 30px;
 }
@@ -130,9 +129,6 @@ a:hover {
     to { width: 100% }
 }*/
 
-img {
-    max-height: 200px;
-}
 
 #projects {
     background-image: url('https://images.pexels.com/photos/2516653/pexels-photo-2516653.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500'); 
@@ -163,15 +159,22 @@ img {
 
 .project-tile {
     box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-    background: #f2f2f2;
 }
 
-.project-image {
-    height: clac(100% - 6.8rem);
-    object-fit: cover;
+img {
+    height: 400px;
     width: 300px;
-    padding: 20px;
-    padding-bottom: 20px;
+}
+
+figcaption {
+    background: rgba(3, 3, 3, 3);
+    color: white;
+    height: 400px;
+    width: 300px;
+    position: relative;
+    bottom: 403.75px;
+    opacity: .6;
+
 }
 
 .text {
@@ -192,23 +195,28 @@ img {
     display: flex;
     justify-content: center;
     flex-direction: column;
-    align-items: center;
 }
 
 #contact h1 {
     font-size: 50px;
     font-family: 'Comfortaa', cursive;
+    display: flex;
+    justify-content: space-around;
 }
 
 .wrapper{
     background-color: #f2f2f2;
-    margin-top: 20px;
+    margin-top:20px;
     margin-bottom: 40px;
-    padding-bottom: 20px;
+    padding-bottom: 15px;
     font-size: 1.5rem;
-
+    
 }
 
+.slidingVertical {
+    display: flex;
+    justify-content: space-around;
+}
 
 .slidingVertical span{
 	animation: topToBottom 10s linear infinite 0s;
@@ -216,16 +224,14 @@ img {
 	-webkit-animation: topToBottom 10s linear infinite 0s;
 	color: black;
 	opacity: 0;
-	overflow: hidden;
+    overflow: hidden;
     position: absolute;
-    display: flex;
-    flex-direction: initial;
-    justify-content: center;
+    
 }
 .slidingVertical span:nth-child(2){
 	animation-delay: 2.5s;
 	-ms-animation-delay: 2.5s;
-	-webkit-animation-delay: 2.5s;
+    -webkit-animation-delay: 2.5s;
 }
 .slidingVertical span:nth-child(3){
 	animation-delay: 5s;
@@ -266,10 +272,17 @@ img {
 	100% { opacity: 0; }
 }
 
+.contact-links {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
 .icon {
     height: 40px;
-    padding-left: 30px;
+    width: 40px;
     padding-right: 30px;
+    padding-left: 30px;
 }
 
 .icon:hover {
