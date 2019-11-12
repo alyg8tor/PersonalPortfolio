@@ -5,7 +5,7 @@ return await response.json()
 }
 */
 
-async function getTheData() {
+async function getPokemonData(url) {
 try {
     const response = await fetch(url)
     const data = await response.json()
@@ -16,7 +16,58 @@ try {
 }
 }
 
-const data = getTheData('https://pokeapi.co/api/v2/pokemon')
+const data = getPokemonData('https://pokeapi.co/api/v2/pokemon')
+
+
+let mainArea = document.querySelector('main')
+
+function populateDOM(pokeArray) {
+    pokeArray.forEach(pokemon => {
+    let pokeDiv = document.createElement('div')
+    let name = document.createElement('h3')
+    let pic = document.createElement('img')
+
+    mainArea.setAttribute('class','charMain')
+    pic.setAttribute('class','picDiv')
+    pokeDiv.setAttribute('class', 'charDiv')
+
+    let pokeNum = getPokeNumber(pokemon.url)
+
+    name.textContent = pokemon.name
+
+    pic.src = `../image/pokemon.json/images/00${pokemon.id}.png`
+
+    pokeDiv.appendChild(name)
+    pokeDiv.appendChild(pic)
+
+    mainArea.appendChild(pokeDiv)
+  })
+}
+
+function getPokeNumber(charURL) {
+    let end = charURL.lastIndexOf('/')
+    let charID = charURL.substring(end -2, end)
+    if(charID.indexOf('/') !== -1 ) {
+        return charID.slice(1,2)
+    }
+    else {
+        return charID
+    }
+}
+
+
+/*
+try {
+    const response = await fetch(url)
+    const data = await response.json()
+    console.log(data)
+    populateDOM(data.results)
+} catch (error) {
+    console.error(error)
+}
+}
+
+const data = getPokemonData('https://pokeapi.co/api/v2/pokemon')
 console.log(data)
 
 let mainArea = document.querySelector('main')
@@ -55,3 +106,4 @@ function getPokeNumber(charURL) {
         return charID
     }
 }
+*/
