@@ -1,109 +1,81 @@
-/*
-async function getPokemonData(url) {
-const response = await fetch(url)
-return await response.json()
-}
-*/
 
-async function getPokemonData(url) {
+//imortant async function//
+async function getAPIData(url) {
 try {
     const response = await fetch(url)
     const data = await response.json()
-    console.log(data)
-    populateDOM(data.results)
+    return data
 } catch (error) {
     console.error(error)
 }
 }
 
-const data = getPokemonData('https://pokeapi.co/api/v2/pokemon')
-
+//now use returned async data
+const theData = getAPIData('https://pokeapi.co/api/v2/pokemon')
+.then(data => {
+    for (const pokemon of data.results) {
+        getAPIData(pokemon.url)
+        .then(pokedata => {
+            populateDOM(pokedata)
+        })
+    }
+})
 
 let mainArea = document.querySelector('main')
 
-function populateDOM(pokeArray) {
-    pokeArray.forEach(pokemon => {
-    let pokeDiv = document.createElement('div')
-    let name = document.createElement('h3')
-    let pic = document.createElement('img')
+function populateDOM(single_pokemon) {
+    let pokeScene = document.createElement('div')
+    let pokeCard = document.createElement('div')
+    let pokeFront = document.createElement('div')
+    let pokeBack = document.createElement('div')
+
+    fillCardFront(pokeFront, single_pokemon)
+    fillCardBack(pokeBack, single_pokemon)
 
     mainArea.setAttribute('class','charMain')
+    pokeScene.setAttribute('class', 'scene')
+    pokeCard.setAttribute('class', 'card')
+    pokeCard.appendChild(pokeFront)
+    pokeCard.appendChild(pokeBack)
+    pokeScene.appendChild(pokeCard)
+
+    mainArea.appendChild(pokeScene)
+
+    pokeCard.addEventListener( 'click', function() {
+        pokeCard.classList.toggle('is-flipped');
+      });
+}
+
+function fillCardFront(pokeFront, data) {
+    pokeFront.setAttribute('class', 'card__face card__face--front')
+    let name = document.createElement('h3')
+    let pic = document.createElement('img')
     pic.setAttribute('class','picDiv')
-    pokeDiv.setAttribute('class', 'charDiv')
-
-    let pokeNum = getPokeNumber(pokemon.url)
-
-    name.textContent = pokemon.name
-
-    pic.src = `../image/pokemon.json/images/00${pokemon.id}.png`
-
-    pokeDiv.appendChild(name)
-    pokeDiv.appendChild(pic)
-
-    mainArea.appendChild(pokeDiv)
-  })
+    let pokeNum = getPokeNumber(data.id)
+    name.textContent = `${data.name}`
+    pic.src = `../image/pokemon.json/images/${pokeNum}.png`
+    pokeFront.appendChild(pic)
+    pokeFront.appendChild(name)
 }
 
-function getPokeNumber(charURL) {
-    let end = charURL.lastIndexOf('/')
-    let charID = charURL.substring(end -2, end)
-    if(charID.indexOf('/') !== -1 ) {
-        return charID.slice(1,2)
-    }
-    else {
-        return charID
-    }
+function fillCardBack(pokeBack, data) {
+    pokeBack.setAttribute('class', 'card__face card__face--back')
+    let pokeOrder = document.createElement('p')
+    let pokeHP = document.createElement('h5')
+    let pokeHeight = document.createElement('h5')
+    pokeHeight.textContent = data.height
+    pokeOrder.textContent = data.order
+    pokeHP.textContent = data.stats[0].base_stat
+    pokeBack.appendChild(pokeOrder)
+    pokeBack.appendChild(pokeHP)
+    pokeBack.appendChild(pokeHeight)
 }
 
-
-/*
-try {
-    const response = await fetch(url)
-    const data = await response.json()
-    console.log(data)
-    populateDOM(data.results)
-} catch (error) {
-    console.error(error)
-}
+//important code//
+function getPokeNumber(id) {
+    if(id < 10) return `00${id}`
+    if(id > 9 && id < 100) {
+        return `0${id}`
+    } else return id
 }
 
-const data = getPokemonData('https://pokeapi.co/api/v2/pokemon')
-console.log(data)
-
-let mainArea = document.querySelector('main')
-
-function populateDOM(pokeArray) {
-    pokeArray.forEach((pokemon) => {
-        console.log(pokemon)
-        let pokeDiv = document.createElement('div')
-        let name = document.createElement('h3')
-        let pic = document.createElement('img')
-    
-        mainArea.setAttribute('class','charMain')
-        pic.setAttribute('class','picDiv')
-        personDiv.setAttribute('class', 'charDiv')
-    
-        let pokeNum = getPokeNumber(pokemon.url)
-    
-        name.textContent = pokemon.name
-
-        pic.src = `../images/${pokeNum}.png`
-    
-        pokeDiv.appendChild(name)
-        pokeDiv.appendChild(pic)
-    
-        mainArea.appendChild(pokeDiv)
-    })
-}
-
-function getPokeNumber(charURL) {
-    let end = charURL.lastIndexOf('/')
-    let charID = charURL.substring(end -2, end)
-    if(charID.indexOf('/') !== -1 ) {
-        return `0${charID.slice(1,2)}`
-    }
-    else {
-        return charID
-    }
-}
-*/
