@@ -24,11 +24,13 @@ const theData = getAPIData('https://pokeapi.co/api/v2/pokemon')
 let mainArea = document.querySelector('main')
 
 function populateDOM(single_pokemon) {
+    let title = document.createElement('h1')
     let pokeScene = document.createElement('div')
     let pokeCard = document.createElement('div')
     let pokeFront = document.createElement('div')
     let pokeBack = document.createElement('div')
 
+    title.textContent = 'pokemon'
     fillCardFront(pokeFront, single_pokemon)
     fillCardBack(pokeBack, single_pokemon)
 
@@ -48,27 +50,30 @@ function populateDOM(single_pokemon) {
 
 function fillCardFront(pokeFront, data) {
     pokeFront.setAttribute('class', 'card__face card__face--front')
-    let name = document.createElement('h3')
-    let pic = document.createElement('img')
-    pic.setAttribute('class','picDiv')
-    let pokeNum = getPokeNumber(data.id)
-    name.textContent = `${data.name}`
-    pic.src = `../image/pokemon.json/images/${pokeNum}.png`
-    pokeFront.appendChild(pic)
-    pokeFront.appendChild(name)
+    let pokeOrder = document.createElement('h3')
+    pokeOrder.textContent = data.order
+    pokeFront.appendChild(pokeOrder)
 }
 
 function fillCardBack(pokeBack, data) {
     pokeBack.setAttribute('class', 'card__face card__face--back')
-    let pokeOrder = document.createElement('p')
-    let pokeHP = document.createElement('h5')
-    let pokeHeight = document.createElement('h5')
+    let backDiv = document.createElement('div')
+    backDiv.setAttribute('class', 'backDiv')
+    let pokeHP = document.createElement('p')
+    let pokeHeight = document.createElement('p')
+    let name = document.createElement('h3')
+    let pic = document.createElement('img')
+    pic.setAttribute('class','picDiv')
+    let pokeNum = getPokeNumber(data.id)
+    name.textContent = `${data.name[0].toUpperCase()}${data.name.slice(1)}`
+    pic.src = `../image/pokemon.json/images/${pokeNum}.png`
     pokeHeight.textContent = data.height
-    pokeOrder.textContent = data.order
     pokeHP.textContent = data.stats[0].base_stat
-    pokeBack.appendChild(pokeOrder)
-    pokeBack.appendChild(pokeHP)
-    pokeBack.appendChild(pokeHeight)
+    pokeBack.appendChild(name)
+    backDiv.appendChild(pokeHP)
+    backDiv.appendChild(pokeHeight)
+    pokeBack.appendChild(pic)
+    pokeBack.appendChild(backDiv)
 }
 
 //important code//
