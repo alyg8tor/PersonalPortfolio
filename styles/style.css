@@ -26,9 +26,10 @@
     left: 0;
     width: 100%;
     height: 50px;
-    background: #ebd9d8;
+    background: #f2f2f2;
     box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
     z-index: 10;
+    font-family: 'Montserrat', sans-serif;
 }  
 
 .navlist {
@@ -48,35 +49,44 @@ li {
     font-size: 1rem;
     height: 100%;
     align-items: center;
-    border-top: 3px solid #ebd9d8;
+    border-top: 3px solid #f2f2f2;
 }
 
 a {
     text-decoration: none;
-    color: #808080;
+    color: gray;
 }
 
-a:hover {
-    color: #a6a6a6;
+.list-item1:hover {
+    border-top: 3px solid #c92c62;
 }
 
-.list-item:hover {
-    border-top: 3px solid #23422a;
+.list-item2:hover {
+    border-top: 3px solid #c6748f;
+}
 
+.list-item3:hover {
+    border-top: 3px solid #eeaabc;
+}
+
+.list-item4:hover {
+    border-top: 3px solid #f7c9cb;
 }
 
 #welcome-section {
+    background-image: url('/image/cactus.jpg'); 
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
     height: 100vh;
-    background: linear-gradient(90deg, #f2f2f2 50%, #f2f2f2 50%);
-    width: 100%;
-    min-height: 200px;
     
 }
 #welcome-section h1 {
     display: flex;
     justify-content: center;
     font-family: 'Bungee Shade', cursive;
-    color: black;
+    color: #f2f2f2;
     margin-left: 50px;
     font-size: 130px;
 }
@@ -98,58 +108,38 @@ a:hover {
 }
 
 #welcome-section p {
-    animation-duration: 2s;
-    animation-name: slidein;
-    margin-left: 271px;
     display: flex;
-    justify-content: flex-end;
-    text-align: right;
+    justify-content: center;
     font-family: 'Montserrat', sans-serif;
-    font-size: 30px;
-    background-color: #ebd9d8;
-    color: #000000;
-    padding: 20px;
-    box-shadow: -2px 2px 2px rgba(0, 0, 0, 0.1);
-    opacity: 10;
-    margin-right: 30px;
+    font-size: 70px;
+    color: #f2f2f2;
 }
-
-  @keyframes slidein {
-    from {
-      margin-left: 100%;
-      width: 100%; 
-    }
-  
-    to {
-      margin-left: 21.5%;
-      width: 73%;
-    }
-  }
-
-/*@keyframes typing{
-    from { width: 0 }
-    to { width: 100% }
-}*/
 
 
 #projects {
-    background-image: url('https://images.pexels.com/photos/2516653/pexels-photo-2516653.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500'); 
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+    background-color: #f2f2f2;
     height: 100vh;
 }
 
 #projects-header {
-    color: white;
+    color: black;
     display: flex;
     justify-content: space-around;
     font-size: 40px;
     padding-top: 40px;
-    padding-bottom: 50px;
+    padding-bottom: 10px;
     font-family: 'Comfortaa', cursive;
 }
+
+#projects-link {
+    color: black;
+    display: flex;
+    justify-content: space-around;
+    font-size: 15px;
+    padding-bottom: 20px;
+    font-family: 'Comfortaa', cursive;
+}
+
 .project-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -168,16 +158,24 @@ img {
     width: 300px;
 }
 
+figure {
+    margin: 0px;
+    display: flex;
+    flex-direction: column;
+  }
+
 figcaption {
     background: rgba(3, 3, 3, 3);
     color: white;
-    height: 400px;
-    width: 300px;
+    padding: 6px;
+    text-align: center;
+    height: 60px;
+    width: 288px;
     position: relative;
-    bottom: 403.75px;
-    opacity: .6;
-
-}
+    bottom: 72px;
+    opacity: .4;
+    font-size: 15px;
+  }
 
 .text {
     text-align: center;
@@ -185,15 +183,13 @@ figcaption {
     font-family: 'Comfortaa', cursive;
 }
 
-.project-tile:hover {
-    -webkit-transform: scale(1.1);
-    -ms-transform: scale(1.1);
-    transform: scale(1.1);
-}
-
 #contact {
+    background-image: url('/image/cactus.jpg'); 
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
     height: 100vh;
-    background-color: #f2f2f2;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -204,15 +200,14 @@ figcaption {
     font-family: 'Comfortaa', cursive;
     display: flex;
     justify-content: space-around;
+    color: #f2f2f2;
 }
 
 .wrapper{
-    background-color: #f2f2f2;
     margin-top:20px;
     margin-bottom: 40px;
     padding-bottom: 15px;
     font-size: 1.5rem;
-    
 }
 
 .slidingVertical {
@@ -224,7 +219,7 @@ figcaption {
 	animation: topToBottom 10s linear infinite 0s;
 	-ms-animation: topToBottom 10s linear infinite 0s;
 	-webkit-animation: topToBottom 10s linear infinite 0s;
-	color: black;
+	color: #f2f2f2;
 	opacity: 0;
     overflow: hidden;
     position: absolute;
@@ -294,16 +289,12 @@ figcaption {
 }
 
 footer {
+    background-color: #f2f2f2;
     display: flex;
     justify-content: center;
-    background-image: url('https://images.pexels.com/photos/2516653/pexels-photo-2516653.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500'); 
-    background-attachment: fixed;
-    background-position: bottom;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 40px;
+    height: 30px;
     font-family: 'Comfortaa', cursive;
-    color: white;
+    color: black;
 }
 
 footer p {
